@@ -4,7 +4,7 @@ metadata:
   labels:
     app: dex
   name: dex
-  namespace: auth
+  namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   replicas: 1
   template:
@@ -14,7 +14,7 @@ spec:
     spec:
       serviceAccountName: dex
       containers:
-      - image: quay.io/coreos/dex:v2.9.0
+      - image: {{ K8S_DEX_IMAGE }}
         name: dex
         command: ["dex", "serve", "/etc/dex/cfg/config.yaml"]
         ports:
@@ -34,4 +34,4 @@ spec:
             path: config.yaml
       - name: tls
         secret:
-          secretName: dex.k8s.example.org.tls
+          secretName: {{ OIDC_ISSUER_URL }}.tls

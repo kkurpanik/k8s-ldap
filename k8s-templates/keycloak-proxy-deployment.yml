@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: keycloak-proxy
-  namespace: auth
+  namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   replicas: 1
   template:
@@ -14,15 +14,15 @@ spec:
     spec:
       containers:
       - name: proxy
-        image: quay.io/gambol99/keycloak-proxy:latest
+        image: {{ K8S_KEYCLOAK_PROXY_IMAGE }}
         imagePullPolicy: Always
         args:
-          - --listen=:80
-          - --upstream-url=https://kubernetes-dashboard.kube-system
-          - --discovery-url=https://dex.k8s.example.org:32000/dex
+          - --listen=:443
+          - --upstream-url=https://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
+          - --discovery-url=https://{{ OIDC_ISSUER_URL }}/dex
           - --client-id=loginapp
           - --skip-upstream-tls-verify
-          - --redirection-url=https://dex.k8s.example.org
+          - --redirection-url=https://{{ LOGIN_APP_URL }}
 #          - --secure-cookie=false
           - --client-secret=4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
           - --scopes=groups 

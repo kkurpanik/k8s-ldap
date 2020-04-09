@@ -1,0 +1,18 @@
+#
+# Licensed Materials - Property of IBM
+# (C) Copyright IBM Corp. 2017. All Rights Reserved.
+# US Government Users Restricted Rights - Use, duplication or
+# disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+#
+
+# See https://docs.sonarqube.org/display/SONAR/Analysis+Parameters
+
+# must be unique in a given SonarQube instance
+sonar.projectKey={{sonar_projectKey}}
+# this is the name displayed in the SonarQube UI
+sonar.projectName={{sonar_projectName}}
+sonar.host.url={{{sonar_host_url}}}
+
+sonar.sources=.
+
+sonar.exclusions=test/**, node_modules/**, coverage/**, travis-scripts/**

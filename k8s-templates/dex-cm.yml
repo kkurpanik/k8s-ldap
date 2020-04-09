@@ -2,10 +2,10 @@ kind: ConfigMap
 apiVersion: v1
 metadata:
   name: dex
-  namespace: auth
+  namespace: {{ K8S_AUTH_NAMESPACE }}
 data:
   config.yaml: |
-    issuer: https://dex.k8s.example.org/dex
+    issuer: https://{{ OIDC_ISSUER_URL }}/dex
     storage:
       type: kubernetes
       config:
@@ -29,7 +29,7 @@ data:
           # If the port is not supplied, it will be guessed based on "insecureNoSSL",
           # and "startTLS" flags. 389 for insecure or StartTLS connections, 636
           # otherwise.
-          host: ldap.k8s.example.org:389
+          host: {{ LDAP_SERVER }}
 
           # Following field is required if the LDAP host is not using TLS (port 389).
           # Because this option inherently leaks passwords to anyone on the same network
@@ -54,14 +54,14 @@ data:
           # server provides access for anonymous auth.
           # Please note that if the bind password contains a `$`, it has to be saved in an
           # environment variable which should be given as the value to `bindPW`.
-          bindDN: cn=admin,dc=example,dc=org
-          bindPW: admin
+          bindDN: {{ LDAP_BIND_DN }}
+          bindPW: {{ LDAP_BIND_PW }}
 
           # User search maps a username and password entered by a user to a LDAP entry.
           userSearch:
             # BaseDN to start the search from. It will translate to the query
             # "(&(objectClass=person)(uid=<username>))".
-            baseDN: ou=People,dc=example,dc=org
+            baseDN: {{ LDAP_BASE_DN_USER }}
             # Optional filter to apply when searching the directory.
             filter: "(objectClass=posixAccount)"
             # username attribute used for comparing user entries. This will be translated
@@ -79,14 +79,14 @@ data:
           groupSearch:
             # BaseDN to start the search from. It will translate to the query
             # "(&(objectClass=group)(member=<user uid>))".
-            baseDN: ou=Groups,dc=example,dc=org
+            baseDN: {{ LDAP_BASE_DN_GROUP }}
             # Optional filter to apply when searching the directory.
             filter: "(objectClass=posixGroup)"
             # Following two fields are used to match a user to a group. It adds an additional
             # requirement to the filter that an attribute in the group must match the user's
             # attribute value.
-            userAttr: uid
-            groupAttr: memberUid
+            userAttr: CN
+            groupAttr: member
             # Represents group name.
             nameAttr: cn
     oauth2:
@@ -95,6 +95,6 @@ data:
     staticClients:
     - id: loginapp
       redirectURIs:
-      - 'https://login.k8s.example.org:32002/callback'
+      - 'https://{{ LOGIN_APP_URL }}/oauth/callback'
       name: 'Login Application'
       secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr

@@ -1,0 +1,10 @@
+# Ignore everything
+*
+
+# Except these dirs:
+!utilities/
+
+# ...and these files:
+!requirements.txt
+!*.py
+!*.sh

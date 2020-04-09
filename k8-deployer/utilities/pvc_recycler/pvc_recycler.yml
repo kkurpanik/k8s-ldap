@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ JOB_NAME }}
+spec:
+  template:
+    metadata:
+      name: {{ JOB_NAME }}
+      labels:
+        task: {{ JOB_NAME }}
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: {{ JOB_NAME }}
+        image: "busybox"
+        command:
+          - "/bin/sh"
+          - "-c"
+          - "find /TO_BE_DELETED/ -mindepth 1 -maxdepth 1 -exec rm -rf {} ';'"
+        volumeMounts:
+          - name: claim
+            mountPath: /TO_BE_DELETED
+            {% if SUBPATH is defined %}
+            subPath: {{ SUBPATH }}
+            {% endif %}
+      volumes:
+      - name: claim
+        persistentVolumeClaim:
+          claimName: {{ PVC_CLAIM_TO_DELETE }}

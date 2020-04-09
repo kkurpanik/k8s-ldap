@@ -37,11 +37,11 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: dex                 # Service account assigned to the dex pod.
-  namespace: auth           # The namespace dex is running in.
+  namespace: {{ K8S_AUTH_NAMESPACE }}           # The namespace dex is running in.
 
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: dex
-  namespace: auth
+  namespace: {{ K8S_AUTH_NAMESPACE }}
