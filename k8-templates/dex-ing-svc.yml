@@ -13,23 +13,25 @@ spec:
   selector:
     app: dex
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: dex-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
   namespace: {{ K8S_AUTH_NAMESPACE }}
+  annotations:
+    #kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: 'true'
+    ingress.kubernetes.io/force-ssl-redirect: 'true'
 spec:
-  tls:
-  - hosts: 
-    - {{ OIDC_ISSUER_URL }}
-    secretName: {{ OIDC_ISSUER_URL }}.tls
   rules:
-  - host: {{ OIDC_ISSUER_URL }}
-    http:
-      paths:
-      - path: /dex
-        backend:
-          serviceName: dex
-          servicePort: 5556
+    - host: {{ OIDC_ISSUER_URL }}
+      http:
+        paths:
+          - backend:
+              serviceName: dex
+              servicePort: 5556
+            path: /
+  tls:
+    - hosts:
+        - {{ OIDC_ISSUER_URL }}
+      secretName: {{ OIDC_ISSUER_URL }}.tls
