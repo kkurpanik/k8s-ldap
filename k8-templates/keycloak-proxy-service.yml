@@ -4,7 +4,6 @@ metadata:
   name: keycloak-proxy
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
-  type: NodePort
   ports:
   - name: keycloak-proxy
     port: 443

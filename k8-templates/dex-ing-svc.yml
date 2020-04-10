@@ -5,7 +5,6 @@ metadata:
   name: dex
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
-  type: NodePort
   ports:
   - name: dex
     port: 5556
