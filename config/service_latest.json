@@ -9,5 +9,6 @@
     "LDAP_BIND_DN": "uid=k8sdash,cn=users,cn=accounts,dc=karol-lab,dc=local",
     "LDAP_BIND_PW": "mydlo123",
     "LDAP_BASE_DN_USER": "cn=users,cn=accounts,dc=karol-lab,dc=local",
-    "LDAP_BASE_DN_GROUP": "cn=groups,cn=accounts,dc=karol-lab,dc=local"
+    "LDAP_BASE_DN_GROUP": "cn=groups,cn=accounts,dc=karol-lab,dc=local",
+    "LDAP_ADMIN_GROUP": "devops"
 }

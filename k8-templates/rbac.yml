@@ -10,4 +10,4 @@ roleRef:
   name: cluster-admin
 subjects:
   - kind: Group
-    name: admins
+    name: {{ LDAP_ADMIN_GROUP }}
