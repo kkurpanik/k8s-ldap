@@ -91,7 +91,7 @@ data:
       skipApprovalScreen: true
 
     staticClients:
-    - id: loginapp
+    - id: keycloak-proxy
       redirectURIs:
       - 'http://{{ LOGIN_APP_URL }}/oauth/callback'
       name: 'Login Application'
