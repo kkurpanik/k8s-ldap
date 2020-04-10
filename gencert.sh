@@ -15,8 +15,8 @@ keyUsage = nonRepudiation, digitalSignature, keyEncipherment
 subjectAltName = @alt_names
 
 [alt_names]
-DNS.1 = {{ OIDC_ISSUER_URL }}
-DNS.2 = {{ LOGIN_APP_URL }}
+DNS.1 = dex.k8s.example.com
+DNS.2 = login.k8s.example.com
 EOF
 
 openssl genrsa -out ssl/ca-key.pem 2048
