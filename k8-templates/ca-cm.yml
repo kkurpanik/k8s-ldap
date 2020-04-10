@@ -4,6 +4,5 @@ metadata:
   name: ca
   namespace: {{ K8S_AUTH_NAMESPACE }}
 data:
-  ca.pem: |
-{{ CA_DEX }}
+  ca.pem: {{ from_file('ssl/ca.pem') }}
 
