@@ -64,7 +64,7 @@ data:
             filter: "(objectClass=posixAccount)"
             # username attribute used for comparing user entries. This will be translated
             # and combine with the other filter as "(<attr>=<username>)".
-            username: mail
+            username: uid
             # The following three fields are direct mappings of attributes on the user entry.
             # String representation of the user.
             idAttr: uid
@@ -83,7 +83,7 @@ data:
             # Following two fields are used to match a user to a group. It adds an additional
             # requirement to the filter that an attribute in the group must match the user's
             # attribute value.
-            userAttr: CN
+            userAttr: DN
             groupAttr: member
             # Represents group name.
             nameAttr: cn
