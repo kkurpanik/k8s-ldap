@@ -17,6 +17,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: dex-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   tls:
