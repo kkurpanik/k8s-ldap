@@ -95,6 +95,6 @@ data:
     staticClients:
     - id: loginapp
       redirectURIs:
-      - 'https://{{ LOGIN_APP_URL }}/oauth/callback'
+      - 'http://{{ LOGIN_APP_URL }}/oauth/callback'
       name: 'Login Application'
       secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr

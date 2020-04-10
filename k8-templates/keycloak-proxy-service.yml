@@ -6,9 +6,9 @@ metadata:
 spec:
   ports:
   - name: keycloak-proxy
-    port: 443
+    port: 80
     protocol: TCP
-    targetPort: 443
+    targetPort: 80
   selector:
     name: keycloak-proxy
 ---
@@ -18,10 +18,6 @@ metadata:
   name: loginapp-ingress
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
-  tls:
-  - hosts: 
-    - {{ LOGIN_APP_URL }}
-    secretName: {{ LOGIN_APP_URL }}.tls
   rules:
   - host: {{ LOGIN_APP_URL }}
     http:
@@ -29,4 +25,4 @@ spec:
       - path: /
         backend:
           serviceName: keycloak-proxy
-          servicePort: 443
+          servicePort: 80

@@ -17,13 +17,13 @@ spec:
         image: {{ K8S_KEYCLOAK_PROXY_IMAGE }}
         imagePullPolicy: Always
         args:
-          - --listen=:443
+          - --listen=:80
           - --upstream-url=https://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
           - --discovery-url=https://{{ OIDC_ISSUER_URL }}/dex
           - --client-id=loginapp
           - --skip-upstream-tls-verify
-          - --redirection-url=https://{{ LOGIN_APP_URL }}
-#          - --secure-cookie=false
+          - --redirection-url=http://{{ LOGIN_APP_URL }}
+          - --secure-cookie=false
           - --client-secret=4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
           - --scopes=groups 
           - --enable-authorization-header
