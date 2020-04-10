@@ -27,5 +27,5 @@ spec:
           - --client-secret=4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
           - --scopes=groups 
           - --enable-authorization-header
-#          - --skip-openid-provider-tls-verify
+          - --skip-openid-provider-tls-verify
           - --resources=uri=/*
