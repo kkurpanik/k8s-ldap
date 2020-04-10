@@ -20,7 +20,7 @@ spec:
           - --listen=:80
           - --upstream-url=https://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
           - --discovery-url=https://{{ OIDC_ISSUER_URL }}/dex
-          - --client-id=loginapp
+          - --client-id=keycloak-proxy
           - --skip-upstream-tls-verify
           - --redirection-url=http://{{ LOGIN_APP_URL }}
           - --secure-cookie=false
