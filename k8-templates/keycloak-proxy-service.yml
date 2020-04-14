@@ -30,6 +30,10 @@ spec:
         backend:
           serviceName: keycloak-proxy
           servicePort: 80
+      - path: /tools-login
+        backend:
+          serviceName: keycloak-proxy
+          servicePort: 80
   tls:
   - hosts:
       - {{ MCMP_UI }}
