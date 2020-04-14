@@ -17,7 +17,7 @@ spec:
         image: {{ K8S_KEYCLOAK_PROXY_IMAGE }}
         imagePullPolicy: Always
         args:
-          - --listen=:80
+          - --listen=:8080
           - --upstream-url=https://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
           - --discovery-url=https://{{ MCMP_UI }}/tools-dex/dex
           - --client-id=keycloak-proxy

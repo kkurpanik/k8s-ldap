@@ -6,9 +6,9 @@ metadata:
 spec:
   ports:
   - name: keycloak-proxy
-    port: 80
+    port: 8080
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
     name: keycloak-proxy
 ---
@@ -28,7 +28,7 @@ spec:
       - path: /tools-login(/|$)(.*)
         backend:
           serviceName: keycloak-proxy
-          servicePort: 80
+          servicePort: 8080
   tls:
   - hosts:
       - {{ MCMP_UI }}
