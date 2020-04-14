@@ -23,14 +23,14 @@ metadata:
     ingress.kubernetes.io/force-ssl-redirect: 'true'
 spec:
   rules:
-    - host: {{ OIDC_ISSUER_URL }}
+    - host: {{ MCMP_UI }}
       http:
         paths:
           - backend:
               serviceName: dex
               servicePort: 5556
-            path: /
+            path: /k8stools/dex
   tls:
     - hosts:
-        - {{ OIDC_ISSUER_URL }}
-      secretName: {{ OIDC_ISSUER_URL }}.tls
+        - {{ MCMP_UI }}
+      secretName: {{ MCMP_UI }}.tls

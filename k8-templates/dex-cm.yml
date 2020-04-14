@@ -5,7 +5,7 @@ metadata:
   namespace: {{ K8S_AUTH_NAMESPACE }}
 data:
   config.yaml: |
-    issuer: https://{{ OIDC_ISSUER_URL }}/dex
+    issuer: https://{{ MCMP_UI }}/k8stools/dex
     storage:
       type: kubernetes
       config:
@@ -93,6 +93,6 @@ data:
     staticClients:
     - id: keycloak-proxy
       redirectURIs:
-      - 'http://{{ LOGIN_APP_URL }}/oauth/callback'
+      - 'http://{{ MCMP_UI }}/k8stools/login/oauth/callback'
       name: 'Login Application'
       secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr

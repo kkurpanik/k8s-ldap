@@ -22,14 +22,14 @@ metadata:
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   rules:
-  - host: {{ LOGIN_APP_URL }}
+  - host: {{ MCMP_UI }}
     http:
       paths:
-      - path: /
+      - path: /k8stools/login
         backend:
           serviceName: keycloak-proxy
           servicePort: 80
   tls:
   - hosts:
-      - {{ LOGIN_APP_URL }}
-    secretName: {{ LOGIN_APP_URL }}.tls
+      - {{ MCMP_UI }}
+    secretName: {{ MCMP_UI }}.tls
