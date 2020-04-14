@@ -17,8 +17,8 @@ kind: Ingress
 metadata:
   name: loginapp-ingress
   annotations:
-    ingress.kubernetes.io/force-ssl-redirect: 'true'
-    ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   rules:
