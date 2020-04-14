@@ -93,6 +93,6 @@ data:
     staticClients:
     - id: keycloak-proxy
       redirectURIs:
-      - 'http://{{ MCMP_UI }}/k8stools/login/oauth/callback'
+      - 'https://{{ MCMP_UI }}/k8stools/login/oauth/callback'
       name: 'Login Application'
       secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
