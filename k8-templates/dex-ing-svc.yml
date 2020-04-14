@@ -20,7 +20,6 @@ metadata:
   namespace: {{ K8S_AUTH_NAMESPACE }}
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   rules:
     - host: {{ MCMP_UI }}
@@ -29,7 +28,7 @@ spec:
           - backend:
               serviceName: dex
               servicePort: 5556
-            path: /tools-dex(/|$)(.*)
+            path: /tools-dex
   tls:
     - hosts:
         - {{ MCMP_UI }}

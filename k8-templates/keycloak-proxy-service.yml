@@ -18,14 +18,14 @@ metadata:
   name: loginapp-ingress
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /tools-login
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   rules:
   - host: {{ MCMP_UI }}
     http:
       paths:
-      - path: /tools-login(/|$)(.*)
+      - path: /tools-login
         backend:
           serviceName: keycloak-proxy
           servicePort: 80
