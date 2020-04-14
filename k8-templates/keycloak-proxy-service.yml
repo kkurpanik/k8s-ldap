@@ -18,7 +18,8 @@ metadata:
   name: loginapp-ingress
   annotations:
     kubernetes.io/tls-acme: 'true'
-    ingress.kubernetes.io/force-ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/rewrite-target: /
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   rules:
