@@ -19,10 +19,10 @@ spec:
         args:
           - --listen=:80
           - --upstream-url=https://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
-          - --discovery-url=https://{{ MCMP_UI }}/k8stools/dex
+          - --discovery-url=https://{{ MCMP_UI }}/tools-dex/dex
           - --client-id=keycloak-proxy
           - --skip-upstream-tls-verify
-          - --redirection-url=http://{{ MCMP_UI }}/k8stools/login
+          - --redirection-url=http://{{ MCMP_UI }}/tools-login
           - --secure-cookie=false
           - --client-secret=4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
           - --scopes=groups 
