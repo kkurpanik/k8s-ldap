@@ -26,7 +26,7 @@ spec:
   - host: {{ MCMP_UI }}
     http:
       paths:
-      - path: /k8stools/login
+      - path: /tools-login
         backend:
           serviceName: keycloak-proxy
           servicePort: 80
