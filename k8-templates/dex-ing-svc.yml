@@ -30,7 +30,7 @@ spec:
           - backend:
               serviceName: dex
               servicePort: 5556
-            path: /k8stools/dex
+            path: /k8stools
   tls:
     - hosts:
         - {{ MCMP_UI }}
