@@ -22,7 +22,7 @@ spec:
           - --discovery-url=https://{{ MCMP_UI }}/tools-dex/dex
           - --client-id=keycloak-proxy
           - --skip-upstream-tls-verify
-          - --redirection-url=http://{{ MCMP_UI }}/tools-login
+          - --redirection-url=https://{{ MCMP_UI }}/tools-login
           - --secure-cookie=false
           - --client-secret=4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr
           - --scopes=groups 
