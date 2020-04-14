@@ -20,6 +20,7 @@ metadata:
   namespace: {{ K8S_AUTH_NAMESPACE }}
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: 'true'
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
     - host: {{ MCMP_UI }}
