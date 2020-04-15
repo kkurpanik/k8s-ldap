@@ -94,6 +94,6 @@ data:
     - id: keycloak-proxy
       redirectURIs:
       - 'https://{{ MCMP_UI }}/tools-login/oauth/callback'
-      - 'https://{{ MCMP_UI }}/oauth2/callback'
+      - 'https://{{ LOGINAPP_URL }}/oauth2/callback'
       name: 'Login Application'
       secret: 4TORGiNV9M54BTk1v7dNuFSaI6hUjfjr

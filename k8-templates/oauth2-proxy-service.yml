@@ -5,7 +5,7 @@ metadata:
   namespace: {{ K8S_AUTH_NAMESPACE }}
 spec:
   rules:
-  - host: {{ MCMP_UI }}
+  - host: {{ LOGINAPP_URL }}
     http:
       paths:
       - backend:
@@ -14,5 +14,5 @@ spec:
         path: /oauth2
   tls:
   - hosts:
-    - {{ MCMP_UI }}
+    - {{ LOGINAPP_URL }}
     secretName: {{ MCMP_UI }}.tls
