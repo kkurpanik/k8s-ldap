@@ -29,4 +29,3 @@ spec:
           - --skip-openid-provider-tls-verify
           - --resources=uri=/*
           - --base-uri=/tools-login
-          - --oauth-uri=oauth
