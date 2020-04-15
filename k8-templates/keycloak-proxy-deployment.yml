@@ -18,7 +18,7 @@ spec:
         imagePullPolicy: Always
         args:
           - --listen=:8080
-          - --upstream-url=https://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
+          - --upstream-url=http://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
           - --discovery-url=https://{{ MCMP_UI }}/tools-dex/dex
           - --redirection-url=https://{{ LOGINAPP_URL }}
           - --client-id=keycloak-proxy
