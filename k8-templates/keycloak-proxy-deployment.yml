@@ -20,6 +20,7 @@ spec:
           - --listen=:8080
           - --upstream-url=https://kubernetes-dashboard.{{ K8S_DASHBOARD_NAMESPACE }}
           - --discovery-url=https://{{ MCMP_UI }}/tools-dex/dex
+          - --redirection-url=https://{{ LOGINAPP_URL }}
           - --client-id=keycloak-proxy
           - --skip-upstream-tls-verify
           - --secure-cookie=false
@@ -28,4 +29,3 @@ spec:
           - --enable-authorization-header
           - --skip-openid-provider-tls-verify
           - --resources=uri=/*
-          - --base-uri=/tools-login
